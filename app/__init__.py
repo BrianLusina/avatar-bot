@@ -124,9 +124,15 @@ def app_logger_handler(app, config_name):
             app.logger.info("App")
 
         except FileNotFoundError as fnfe:
-            print(
-                f"Failed to create rotating file handler in {config_name} environment with error {fnfe}"
-            )
+            try:
+                app_logger.error(
+                    f"Failed to create rotating file handler in {config_name} environment with error {fnfe}"
+                )
+            except SyntaxError:
+                # for Python versions that do not support F strings
+                app_logger.error(
+                    "Failed to create rotating file handler in {CONFIG} environment with error {ERROR}".format(CONFIG=config_name, ERROR=fnfe)
+                )
             app.logger.info("App")
 
 
