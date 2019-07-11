@@ -15,7 +15,7 @@ def response():
     chat_id = update.message.chat.id
     message_id = update.message.message_id
 
-    text = update.message.text.uncode("utf-8").decode()
+    text = update.message.text.unicode("utf-8").decode()
 
     if text == "/start":
         bot_welcome = """Welcome to Avatar bot, the bot is using the service from http://avatars.adorable.io/ to 
