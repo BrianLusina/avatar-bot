@@ -15,6 +15,7 @@ install:
   - pipenv lock -r -d > requirements_dev.txt
   - pip install -r requirements.txt
   - pip install -r requirements_dev.txt
+  - pip install codecov
 
 script:
   - py.test tests
