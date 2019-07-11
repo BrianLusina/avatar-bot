@@ -1,0 +1,28 @@
+dist: xenial # required for Python >= 3.7
+sudo: false
+
+language: python
+
+python:
+  - "3.6"
+  - "3.7"
+
+install:
+  - pip install pipenv
+  - pipenv install
+  - pipenv lock -r > requirements.txt
+  - pipenv lock -r -d > requirements_dev.txt
+  - pip install -r requirements.txt
+  - pip install -r requirements_dev.txt
+  - pip install codecov
+
+script:
+  - py.test tests
+  - pytest --cov=app tests/
+  # runs coverage
+  - coverage html
+  # - coverage report
+  - codecov
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
