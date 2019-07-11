@@ -1,3 +1,4 @@
+dist: xenial # required for Python >= 3.7
 sudo: false
 
 language: python
@@ -10,15 +11,17 @@ python:
 install:
   - pip install pipenv
   - pipenv install
+  - pipenv lock -r > requirements.txt
+  - pipenv lock -r -d > requirements_dev.txt
+  - pip install -r requirements.txt
+  - pip install -r requirements_dev.txt
 
 script:
   - py.test tests
+  - pytest --cov=app tests/
   # runs coverage
-  - coverage run --source pysnips -m py.test tests/
+  - coverage html
   # - coverage report
-  - coverage xml -i
-  - coverage html -i
-  - python-codacy-coverage -r coverage.xml
   - codecov
 
 after_success:

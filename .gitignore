@@ -207,3 +207,4 @@ dmypy.json
 .pyre/
 .envrc
 .idea/
+coverage/
