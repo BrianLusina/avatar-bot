@@ -80,6 +80,10 @@ def list_routes():
 
 @manager.command
 def set_webhook():
+    """
+    Sets the application webhook with Telegram
+    Run with python manage.py set_webhoook
+    """
     token = os.environ.get("TOKEN")
     url = os.environ.get("URL")
 
