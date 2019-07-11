@@ -85,7 +85,7 @@ def set_webhook():
 
     # we use the bot object to link the bot to our app which live
     # in the link provided by URL
-    s = telegram_bot.setWebhook(f"{url}{token}")
+    s = telegram_bot.setWebhook(f"{url}/api/avatar-bot/{token}")
 
     # something to let us know things work
     if s:
