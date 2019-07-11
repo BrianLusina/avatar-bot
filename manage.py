@@ -14,7 +14,7 @@ app = create_app(os.getenv("FLASK_ENV") or "default")
 # We can use the Werkzeug ProxyFix to ... fix the proxy.
 app.wsgi_app = ProxyFix(app.wsgi_app)
 
-port = os.getenv("PORT") or 7070
+port = os.getenv("PORT") or 7000
 
 manager = Manager(app)
 server = Server(host="0.0.0.0", port=port)

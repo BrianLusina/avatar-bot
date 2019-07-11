@@ -36,7 +36,8 @@ def response():
             # note that you can send photos by url and telegram will fetch it for you
             telegram_bot.sendPhoto(chat_id=chat_id, photo=url, reply_to_message_id=message_id)
 
-        except Exception:
+        except Exception as e:
+            log.error(f"Failed to generate response with error {e}")
             # if things went wrong
             telegram_bot.sendMessage(chat_id=chat_id,
                                      text="There was a problem in the name you used, please enter different name",
