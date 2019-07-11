@@ -3,6 +3,9 @@ sudo: false
 
 language: python
 
+services:
+  - docker
+
 python:
   - "3.6"
   - "3.7"
