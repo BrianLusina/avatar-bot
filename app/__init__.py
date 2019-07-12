@@ -107,7 +107,7 @@ def app_logger_handler(app, config_name):
     if config_name == "production":
         try:
             file_handler = RotatingFileHandler(
-                filename="/home/avatar/app.log",
+                filename="/logs/app.log",
                 mode="a",
                 maxBytes=1 * 1024 * 1024,
                 backupCount=10,
