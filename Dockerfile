@@ -11,4 +11,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 7000
 
-RUN gunicorn --config gunicorn_conf.py wsgi:app
+ENTRYPOINT ["gunicorn", "--config", "gunicorn_conf.py", "wsgi:app"]
