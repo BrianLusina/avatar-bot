@@ -11,6 +11,4 @@ RUN pip install -r requirements.txt
 
 EXPOSE 7000
 
-RUN chmod 555 docker-entrypoint.sh
-
 RUN gunicorn --config gunicorn_conf.py wsgi:app
